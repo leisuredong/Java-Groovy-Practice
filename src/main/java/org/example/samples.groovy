@@ -1,6 +1,7 @@
 package org.example
 
 class Example {
+
     static void main(String[] args) {
         /*
         def keys = ['name', 'age', 'sex']
@@ -25,17 +26,28 @@ class Example {
         println(list)
         */
 
-        def s = 'hello';
+        def s = 'hello'
         def s_new = "${s}"
         println(s_new)
 
         sayHello()
 
-        Eval.me('33*3') == 99
+        def counter = createCounter()
+        println(counter.call())
+        println(counter())
+        println(counter())
+
+        println(Eval.me('33*3') == 99)
     }
 
     def static sayHello() {
-        println "Hello, world!"
+        println 'Hello, world!'
     }
+
+    def static createCounter() {
+        def count = 0
+        return { count++ }
+    }
+
 }
 
